@@ -42,6 +42,11 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-surround'
 Bundle 'skalnik/vim-vroom'
 
+Plugin 'mustache/vim-mustache-handlebars'
+let g:mustache_abbreviations = 1
+
+Plugin 'rizzatti/dash.vim'
+
 " Track the engine.
 " Plugin 'SirVer/ultisnips'
 
@@ -535,6 +540,7 @@ noremap tm :SyntasticToggleMode<cr>
 """""""""""""""""""""""
 " set row number for following file types
 """""""""""""""""""""""
+autocmd FileType config set syntax=javascript
 autocmd FileType css set nu
 autocmd FileType ruby set nu
 "autocmd FileType php set nu
@@ -545,6 +551,7 @@ autocmd FileType coffee set nu
 autocmd FileType scss set nu
 autocmd FileType javascript set nu
 autocmd FileType cucumber set nu
+autocmd FileType html.handlebars set nu
 
 """"""""""""""""""""""
 " set no wrap for following file types
@@ -605,6 +612,9 @@ autocmd BufReadPost fugitive://*
 "let g:syntastic_check_on_open=1
 let g:syntastic_auto_jump=1
 let g:syntastic_auto_loc_list=1
+
+let g:syntastic_eruby_ruby_quiet_messages =
+    \ {'regex': 'possibly useless use of a variable in void context'}
 
 " MiniBufExpl Colors
 "let g:miniBufExplMapWindowNavVim = 1 
