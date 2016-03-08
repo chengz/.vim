@@ -55,8 +55,8 @@ Plugin 'honza/vim-snippets'
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-f>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
@@ -465,6 +465,11 @@ au FileType python map <buffer> <leader>2 /def
 au FileType python map <buffer> <leader>C ?class
 au FileType python map <buffer> <leader>D ?def
 
+""""""""""""""""""""""""""""""
+" => Ember Handlerbar section
+"""""""""""""""""""""""""""""""
+au BufNewFile,BufRead *.hbs set ft=html
+
 
 """"""""""""""""""""""""""""""
 " => JavaScript section
@@ -557,6 +562,7 @@ autocmd FileType scss set nu
 autocmd FileType javascript set nu
 autocmd FileType cucumber set nu
 autocmd FileType html.handlebars set nu
+autocmd FileType hbs set nu
 
 """"""""""""""""""""""
 " set no wrap for following file types
@@ -571,6 +577,7 @@ autocmd FileType coffee set nowrap
 autocmd FileType scss set nowrap
 autocmd FileType javascript set nowrap
 autocmd FileType cucumber set nowrap
+autocmd FileType hbs set nowrap
 
 "statusline setup
 set statusline=%f       "tail of the filename
@@ -620,41 +627,3 @@ let g:syntastic_auto_loc_list=1
 
 let g:syntastic_eruby_ruby_quiet_messages =
     \ {'regex': 'possibly useless use of a variable in void context'}
-
-" MiniBufExpl Colors
-"let g:miniBufExplMapWindowNavVim = 1 
-"let g:miniBufExplMapWindowNavArrows = 1 
-"let g:miniBufExplMapCTabSwitchBufs = 1 
-"let g:miniBufExplMapCTabSwitchWindows = 1
-"let g:miniBufExplModSelTarget = 1
-"let g:miniBufExplSplitBelow=1
-"let g:miniBufExplSplitToEdge = 0
-"let g:miniBufExplVSplit = 40 " use vertical buf list
-"let g:miniBufExplMaxSize = 40
-"hi MBEVisibleActive guifg=#A6DB29 guibg=black
-"hi MBEVisibleChangedActive guifg=#F1266F guibg=black
-"hi MBEVisibleChanged guifg=#F1266F guibg=black
-"hi MBEVisibleNormal guifg=#5DC2D6 guibg=black
-"hi MBEChanged guifg=#CD5907 guibg=black
-"hi MBENormal guifg=#808080 guibg=black
-
-" Run the current file with rspec
-"map <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
-
-" Prompt for a command to run
-"map <Leader>vp :VimuxPromptCommand<CR>
-
-" Run last command executed by VimuxRunCommand
-"map <Leader>vl :VimuxRunLastCommand<CR>
-
-" Inspect runner pane
-"map <Leader>vi :VimuxInspectRunner<CR>
-
-" Close vim tmux runner opened by VimuxRunCommand
-"map <Leader>vq :VimuxCloseRunner<CR>
-
-" Interrupt any command running in the runner pane
-"map <Leader>vx :VimuxInterruptRunner<CR>
-
-" Zoom the runner pane (use <bind-key> z to restore runner pane)
-"map <Leader>vz :call VimuxZoomRunner()<CR>
