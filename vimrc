@@ -510,7 +510,12 @@ endfunction
 """"""""""""""""""""""""""""""
 noremap tt :CtrlP<cr>
 noremap ty <F5>
-
+" default
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/.git/*
+" ember
+set wildignore+=*/node_modules/*,*/bower_components/*,*/vendor/*
+" rails
+set wildignore+=*/bin/*,*/coverage/*,*/log/*
 
 """"""""""""""""""""""""""""""
 " => Vim grep
