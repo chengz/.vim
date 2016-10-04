@@ -47,6 +47,8 @@ let g:mustache_abbreviations = 1
 
 Plugin 'rizzatti/dash.vim'
 
+Plugin 'scrooloose/nerdcommenter'
+
 " Track the engine.
 " Plugin 'SirVer/ultisnips'
 
@@ -338,7 +340,7 @@ set laststatus=2
 
 
 function! CurDir()
-    let curdir = substitute(getcwd(), '/Users/amir/', "~/", "g")
+    let curdir = substitute(getcwd(), '/Users/chengzhu/', "~/", "g")
     return curdir
 endfunction
 
