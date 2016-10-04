@@ -25,3 +25,25 @@ To use Ack.vim, ack is needed:
 ---------------------------------
 
     brew install ack
+
+
+
+Move Around
+-------------------------------
+
+hjkl
+
+`gg` go to top
+`G` go to bottom
+
+`Ctrl + u` page up
+`Ctrl + d` page down
+
+`number j` move down number of rows e.g. 10j
+`number gg` move to line number e.g. 20gg (move to line 20)
+
+`, + hjkl` move to window around
+`number, + hjkl` move to number of window e.g. 2,l move to the second window on right
+
+`nt` toggle node tree
+`tt` open search file
