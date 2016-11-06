@@ -35,7 +35,7 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'asux/vim-capybara'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-cucumber'
-Bundle 'tpope/vim-dispatch'
+" Bundle 'tpope/vim-dispatch'
 Bundle 'groenewege/vim-less'
 Bundle 'tpope/vim-repeat'
 Bundle 'vim-ruby/vim-ruby'
@@ -430,7 +430,11 @@ map <leader>o :BufExplorer<cr>
 
 
 " Dispatch run test
-map <leader>t :Dispatch bundle exec
+" map <leader>t :Dispatch bundle exec
+
+" GitGutter
+map <leader>t :GitGutterToggle<cr>
+map <leader>tl :GitGutterLineHighlightsToggle<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
