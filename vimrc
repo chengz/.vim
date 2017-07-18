@@ -1,5 +1,8 @@
 set nocompatible              " be iMproved, required
 "set paste
+set path+=**
+
+set number
 
 " Required Vundle setup
 filetype off
@@ -24,9 +27,12 @@ Bundle 'jlanzarotta/bufexplorer'
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-rails'
+Plugin 'benmills/vimux'
+Plugin 'jgdavey/vim-turbux'
 Bundle 'garbas/vim-snipmate'
 " Bundle 'ervandew/supertab'
 
+Bundle 'Konfekt/FastFold'
 "Syntax checking hacks for vim
 Bundle 'scrooloose/syntastic'
 Bundle 'tomtom/tlib_vim'
@@ -45,6 +51,7 @@ Plugin 'airblade/vim-gitgutter'
 let g:gitgutter_sign_column_always = 0
 let g:gitgutter_highlight_lines = 0
 let g:gitgutter_realtime = 0
+let g:gitgutter_max_signs = 200
 
 Plugin 'mustache/vim-mustache-handlebars'
 let g:mustache_abbreviations = 1
@@ -433,7 +440,7 @@ map <leader>o :BufExplorer<cr>
 " map <leader>t :Dispatch bundle exec
 
 " GitGutter
-map <leader>t :GitGutterToggle<cr>
+map <leader>tt :GitGutterToggle<cr>
 map <leader>tl :GitGutterLineHighlightsToggle<cr>
 
 
@@ -530,7 +537,9 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/.git/*
 " ember
 set wildignore+=*/node_modules/*,*/bower_components/*,*/vendor/*
 " rails
-set wildignore+=*/bin/*,*/coverage/*,*/log/*
+set wildignore+=*/bin/*,*/coverage/*,*/log/*,*/doc/*
+" doc
+set wildignore+=*/doc/*
 
 """"""""""""""""""""""""""""""
 " => Vim grep
@@ -644,7 +653,7 @@ let g:EclimCompletionMethod = 'omnifunc'
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 " Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_at_startup = 0
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
@@ -711,3 +720,8 @@ endif
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+let g:turbux_command_rspec = 'bundle exec rspec'
+let g:turbux_command_minitest = 'bundle exec ruby'
+nmap <leader>R <Plug>SendTestToTmux
+nmap <leader>r <Plug>SendFocusedTestToTmux
