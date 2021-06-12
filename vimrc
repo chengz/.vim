@@ -21,12 +21,14 @@ Bundle 'vim-scripts/ZoomWin'
 " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-commentary'
+Bundle 'pangloss/vim-javascript'
 
 Bundle 'jlanzarotta/bufexplorer'
 
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-rails'
 Plugin 'benmills/vimux'
 Plugin 'jgdavey/vim-turbux'
 Bundle 'garbas/vim-snipmate'
@@ -39,10 +41,10 @@ Bundle 'tomtom/tlib_vim'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'asux/vim-capybara'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'tpope/vim-cucumber'
+" Bundle 'kchmck/vim-coffee-script'
+" Bundle 'tpope/vim-cucumber'
 " Bundle 'tpope/vim-dispatch'
-Bundle 'groenewege/vim-less'
+" Bundle 'groenewege/vim-less'
 Bundle 'tpope/vim-repeat'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-surround'
@@ -56,9 +58,9 @@ let g:gitgutter_max_signs = 200
 Plugin 'mustache/vim-mustache-handlebars'
 let g:mustache_abbreviations = 1
 
-Plugin 'rizzatti/dash.vim'
+" Plugin 'rizzatti/dash.vim'
 
-Plugin 'scrooloose/nerdcommenter'
+" Plugin 'scrooloose/nerdcommenter'
 
 " Track the engine.
 " Plugin 'SirVer/ultisnips'
@@ -106,6 +108,8 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set 7 lines to the curors - when moving vertical..
 set so=7
+
+set relativenumber
 
 set wildmenu "Turn on WiLd menu
 
