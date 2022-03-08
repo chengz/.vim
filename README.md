@@ -7,18 +7,21 @@ Installation:
 -------------
 
     git clone git@github.com:chengz/.vim.git ~/.vim
-    git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    
+    Download plug.vim and put it in ~/.vim/autoload
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 
 Create symlinks:
 ---------------
 
     ln -s ~/.vim/vimrc ~/.vimrc
-    ln -s ~/.vim/gvimrc ~/.gvimrc
+    ln -s ~/.vim/gvimrc ~/.gvimrc (only if you're using mvim)
 
 Run vim and install bundles
 ------------------------------------------------------
     vim .
-    :BundleInstall
+    :PlugInstall (install plugins)
 
 
 To use Ack.vim, ack is needed:
