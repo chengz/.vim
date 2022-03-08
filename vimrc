@@ -4,69 +4,63 @@ set path+=**
 
 set number
 
-" Required Vundle setup
-filetype off
-set runtimepath+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
 
-Bundle 'gmarik/vundle'
+" Make sure you use single quotes
 
-Bundle 'SirVer/ultisnips'
-" Bundle 'Valloric/YouCompleteMe'
+" Plug 'SirVer/ultisnips'
 
 " Press <c-w>o : the current window zooms into a full screen
 " Press <c-w>o again: the previous set of windows is restored
-Bundle 'vim-scripts/ZoomWin'
+Plug 'vim-scripts/ZoomWin'
 
 " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-Bundle 'kien/ctrlp.vim'
-Bundle 'mileszs/ack.vim'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-commentary'
-Bundle 'pangloss/vim-javascript'
+Plug 'kien/ctrlp.vim'
+Plug 'mileszs/ack.vim'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-commentary'
+Plug 'pangloss/vim-javascript'
 
-Bundle 'jlanzarotta/bufexplorer'
+Plug'jlanzarotta/bufexplorer'
 
-Bundle 'tpope/vim-fugitive'
-Bundle 'scrooloose/nerdtree'
-Plugin 'benmills/vimux'
-Plugin 'jgdavey/vim-turbux'
-Bundle 'garbas/vim-snipmate'
-" Bundle 'ervandew/supertab'
+Plug 'https://github.com/tpope/vim-fugitive.git'
+Plug 'junegunn/gv.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'benmills/vimux'
+Plug 'jgdavey/vim-turbux'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+let g:airline_theme='papercolor'
 
-Bundle 'Konfekt/FastFold'
+Plug 'Konfekt/FastFold'
 "Syntax checking hacks for vim
-Bundle 'scrooloose/syntastic'
-Bundle 'tomtom/tlib_vim'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'asux/vim-capybara'
-" Bundle 'kchmck/vim-coffee-script'
-" Bundle 'tpope/vim-cucumber'
-" Bundle 'tpope/vim-dispatch'
-" Bundle 'groenewege/vim-less'
-Bundle 'tpope/vim-repeat'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-surround'
-Bundle 'Shougo/neocomplete.vim'
-Plugin 'airblade/vim-gitgutter'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-unimpaired'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'asux/vim-capybara'
+Plug 'tpope/vim-repeat'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-surround'
+Plug 'Shougo/neocomplete.vim'
+Plug 'airblade/vim-gitgutter'
 let g:gitgutter_sign_column_always = 0
 let g:gitgutter_highlight_lines = 0
 let g:gitgutter_realtime = 0
 let g:gitgutter_max_signs = 200
 
-Plugin 'mustache/vim-mustache-handlebars'
+Plug 'mustache/vim-mustache-handlebars'
 let g:mustache_abbreviations = 1
 
-" Plugin 'rizzatti/dash.vim'
-
-" Plugin 'scrooloose/nerdcommenter'
-
-" Track the engine.
-" Plugin 'SirVer/ultisnips'
-
 " Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
+" let g:snipMate = { 'snippet_version' : 1 }
+
+" Initialize plugin system
+call plug#end()
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-f>"
@@ -74,7 +68,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsEditSplit="vertical"
 
 " Set color scheme
 colorscheme ir_black
@@ -134,7 +128,7 @@ setlocal diff foldmethod=diff scrollbind nowrap foldlevel=1
 set hlsearch "Highlight search things
 
 set incsearch "Make search act like search in modern browsers
-set nolazyredraw "Don't redraw while executing macros 
+set nolazyredraw "Don't redraw while executing macros
 
 set magic "Set magic on, for regular expressions
 
@@ -263,7 +257,7 @@ cnoremap <C-N> <Down>
 
 func! Cwd()
   let cwd = getcwd()
-  return "e " . cwd 
+  return "e " . cwd
 endfunc
 
 func! DeleteTillSlash()
@@ -336,7 +330,7 @@ function! <SID>BufcloseCloseIt()
    endif
 endfunction
 
-" Specify the behavior when switching between buffers 
+" Specify the behavior when switching between buffers
 try
   " set switchbuf=usetab
   set stal=2
@@ -620,7 +614,7 @@ set statusline+=%y      "filetype
 set statusline+=%r      "read only flag
 set statusline+=%m      "modified flag
 
-set statusline+=%{fugitive#statusline()}
+set statusline+=%{FugitiveStatusline()}
 
 "display a warning if &paste is set
 set statusline+=%#error#
